@@ -1,0 +1,188 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Order
+{% endblock %}
+
+{% block body %}
+  
+<section class="home-section">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="container">
+                <div class="mytrash-heading">Order Pikitup ♻️ </div>
+                <hr />
+              <form action="/order/" id="orderform" method="POST" enctype="multipart/form-data">
+                <div class="trash-photos">
+                    <div class="trash-photo-heading">Your Trash Photos</div>
+                    <input class="trash-photo-btn" id="trashphoto" name="trashphoto" type="file" multiple/>
+                    <div class="trash-photos-list">
+                        
+                    </div>
+                </div>
+                <div class="trash-address">
+                    <div class="trash-address-heading">Pick Up Address</div>
+                    <textarea class="order-input" name="pickupaddress" id="pickupaddress" rows="3" placeholder="Pick Up Address..."></textarea>
+                </div>
+                <div class="trash-ongkir">
+                    <div class="trash-ongkir-heading">Driver's Tip</div>
+                    <div class="trash-ongkir-content d-flex justify-content-between align-items-center">
+                        <input class="order-input" type="number" name="driverstip" id="driverstip" placeholder="Driver's tip..." min="1000" step="1000"/>
+                        <select class="trash-ongkir-select" aria-label="Default select example" name="paymentmethod">
+                            <option selected value="">Payment</option>
+                            <option value="cash">Cash</option>
+                            <option value="coins">Coins</option>
+                            <option value="card">Card</option>
+                        </select>   
+                    </div>
+                  <input type="hidden" name="orderbutton" value="order">
+                  </form>
+                </div>
+              <div class="trash-list trash-order">
+                <div class="trash-list-heading">Your Trash</div>
+                {% if baglen == 0 %}
+                <h3 style="margin-top: 30px; margin-bottom:375px;font-size:18px;color:rgba(0,0,0,.5);">You have no items on your bag</h3>
+                {% else %}
+                    {% for i in range(baglen) %}
+                    <div class="trashbox d-flex justify-content-between align-items-center" id="">
+                        <div class="trash-detail d-flex align-items-center">
+                            <img src="{{bag[i][3]}}" alt="" class="trash-img">
+                            <div class="trash-text">
+                                <div class="trash-name">{{bag[i][1]}}g {{bag[i][0]}}</div>
+                                <div class="trash-coin">{{bag[i][2]}} Coins</div>
+                            </div>
+                        </div>
+                        <form action="/order/">
+                            <button class="btn trash-btn d-flex justify-content-center align-items-center removetrash" name="removebutton" value="{{bag[i][0]}}"><i class="bx bx-minus"></i></button>
+                        </form>
+                    </div>
+                    {% endfor %}
+                    
+                
+                {% endif %}
+                </div>
+                <div class="trash-total trash-order">
+                    <div class="total-trash d-flex flex-column justify-content-between">
+                        <div class="total-text d-flex justify-content-between">
+                            <div class="total-kg-wrapper d-flex align-items-center">
+                                <div class="total-icon kg"><i class='bx bx-cart-alt'></i></div>
+                                <div class="total-details">
+                                    <div class="total-label">Total</div>
+                                    <div class="total-num">{{amount}}</div>
+                                </div>
+                                
+                            </div>
+                            <div class="total-coins-wrapper d-flex align-items-center">
+                                <div class="total-icon coin"><i class='bx bx-coin-stack' ></i></div>
+                                <div class="total-details">
+                                    <div class="total-label">Coins</div>
+                                    <div class="total-num">{{coins}}</div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+
+
+                        <button class="btn total-btn d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#modalorder">Continue <i class='bx bx-chevrons-right'></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 secondcol">
+            <div class="container">
+                <div class="mytrash-heading">On Process 🧭</div>
+                <div class="sortby-process">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Sort by
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">On Verification</a></li>
+                          <li><a class="dropdown-item" href="#">On the way</a></li>
+                          <li><a class="dropdown-item" href="#">Picked</a></li>
+                        </ul>
+                      </div>
+                </div>
+
+                <div class="process-list">
+                    <div class="trashbox processbox d-flex justify-content-between align-items-center" id="">
+                        <div class="trash-detail d-flex align-items-center">
+                            <div class="trash-thumb d-flex align-items-center justify-content-center" id="verif">
+                                <i class='bx bx-loader-circle'></i>
+                            </div>
+                            <div class="trash-text">
+                                <div class="trash-name">Order #123456</div>
+                                <div class="trash-coin">On Verification</div>
+                            </div>
+                        </div>
+                        <button class="btn trash-btn d-flex justify-content-center align-items-center">?</button>
+                    </div>
+                    <div class="trashbox processbox d-flex justify-content-between align-items-center" id="">
+                        <div class="trash-detail d-flex align-items-center">
+                            <div class="trash-thumb d-flex align-items-center justify-content-center" id="otw">
+                                <i class='bx bx-car'></i>
+                            </div>
+                            <div class="trash-text">
+                                <div class="trash-name">Order #223456</div>
+                                <div class="trash-coin">On the way</div>
+                            </div>
+                        </div>
+                        <button class="btn trash-btn d-flex justify-content-center align-items-center">?</button>
+                    </div>
+                    <div class="trashbox processbox d-flex justify-content-between align-items-center" id="">
+                        <div class="trash-detail d-flex align-items-center">
+                            <div class="trash-thumb d-flex align-items-center justify-content-center" id="picked">
+                                <i class='bx bx-check-square'></i>
+                            </div>
+                            <div class="trash-text">
+                                <div class="trash-name">Order #323456</div>
+                                <div class="trash-coin">Picked</div>
+                            </div>
+                        </div>
+                        <button class="btn trash-btn d-flex justify-content-center align-items-center">?</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+      
+<div class="modal fade" id="modalorder" tabindex="-1" aria-labelledby="modalorder" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="modalorder">Order Summary</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+        </div>
+        <div class="modal-body">
+            <div class="order-summary">
+                <hr />
+                <div class="summary-text d-flex justify-content-between align-items-center">
+                    <div class="summary-title">Trash</div>
+                    <div class="summary-value">{{amount}}</div>
+                </div>
+                <div class="summary-text d-flex justify-content-between align-items-center">
+                    <div class="summary-title">Coins</div>
+                    <div class="summary-value">{{coins}}</div>
+                </div>
+                <div class="summary-text d-flex justify-content-between align-items-center">
+                    <div class="summary-title">Driver's tip</div>
+                    <div class="summary-value" id="driverstipmodal">0</div>
+                </div>
+                <hr />
+                <div class="summary-text d-flex justify-content-between align-items-center" id="totalpayments">
+                    <div class="summary-title">Total payments</div>
+                    <div class="summary-value">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary cancelmodal" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-primary savechanges addtobag" id="orderbutton">Order</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Bag
+{% endblock %}
+
+{% block body %}
+    
+<section class="home-section">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="container">
+                <div class="mytrash-heading">My Trash 🗑️</div>
+                <div class="sortby-trash d-flex">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Sort By
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Newest</a></li>
+                          <li><a class="dropdown-item" href="#">Latest</a></li>
+                          <li><a class="dropdown-item" href="#">All</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="category">
+                          Category
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Plastics</a></li>
+                          <li><a class="dropdown-item" href="#">Papers</a></li>
+                          <li><a class="dropdown-item" href="#">Metals</a></li>
+                        </ul>
+                      </div>
+                </div>
+                {% if baglen == 0 %}
+                <h3 style="margin-top: 30px; margin-bottom:375px;font-size:18px;color:rgba(0,0,0,.5);">You have no items on your bag</h3>
+                {% else %}
+                <div class="trash-list">
+                    {% for i in range(baglen) %}
+                    <div class="trashbox d-flex justify-content-between align-items-center" id="">
+                        <div class="trash-detail d-flex align-items-center">
+                            <img src="{{bag[i][3]}}" alt="" class="trash-img">
+                            <div class="trash-text">
+                                <div class="trash-name">{{bag[i][1]}}g {{bag[i][0]}}</div>
+                                <div class="trash-coin">{{bag[i][2]}} Coins</div>
+                            </div>
+                        </div>
+                        <form action="/mybag/">
+                            <button class="btn trash-btn d-flex justify-content-center align-items-center removetrash" name="removebutton" value="{{bag[i][0]}}"><i class="bx bx-minus"></i></button>
+                        </form>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+                {% endif %}
+                <div class="trash-total">
+                    <div class="total-trash d-flex flex-column justify-content-between">
+                        <div class="total-text d-flex justify-content-between">
+                            <div class="total-kg-wrapper d-flex align-items-center">
+                                <div class="total-icon kg"><i class='bx bx-cart-alt'></i></div>
+                                <div class="total-details">
+                                    <div class="total-label">Total</div>
+                                    <div class="total-num">{{amount}}</div>
+                                </div>   
+                            </div>
+                            <div class="total-coins-wrapper d-flex align-items-center">
+                                <div class="total-icon coin"><i class='bx bx-coin-stack' ></i></div>
+                                <div class="total-details">
+                                    <div class="total-label">Coins</div>
+                                    <div class="total-num">{{coins}}</div>
+                                </div>       
+                            </div>
+                        </div>
+                        <button class="btn total-btn d-flex align-items-center justify-content-center" onclick="window.location.href='/order'">Continue <i class='bx bx-chevrons-right'></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 secondcol">
+            <div class="container">
+                <div class="mytrash-heading">On Process 🧭</div>
+                <div class="sortby-process">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Sort by
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">On Verification</a></li>
+                          <li><a class="dropdown-item" href="#">On the way</a></li>
+                          <li><a class="dropdown-item" href="#">Picked</a></li>
+                        </ul>
+                      </div>
+                </div>
+
+                <div class="process-list">
+                    <div class="trashbox processbox d-flex justify-content-between align-items-center" id="">
+                        <div class="trash-detail d-flex align-items-center">
+                            <div class="trash-thumb d-flex align-items-center justify-content-center" id="verif">
+                                <i class='bx bx-loader-circle'></i>
+                            </div>
+                            <div class="trash-text">
+                                <div class="trash-name">Order #123456</div>
+                                <div class="trash-coin">On Verification</div>
+                            </div>
+                        </div>
+                        <button class="btn trash-btn d-flex justify-content-center align-items-center">?</button>
+                    </div>
+                    <div class="trashbox processbox d-flex justify-content-between align-items-center" id="">
+                        <div class="trash-detail d-flex align-items-center">
+                            <div class="trash-thumb d-flex align-items-center justify-content-center" id="otw">
+                                <i class='bx bx-car'></i>
+                            </div>
+                            <div class="trash-text">
+                                <div class="trash-name">Order #223456</div>
+                                <div class="trash-coin">On the way</div>
+                            </div>
+                        </div>
+                        <button class="btn trash-btn d-flex justify-content-center align-items-center">?</button>
+                    </div>
+                    <div class="trashbox processbox d-flex justify-content-between align-items-center" id="">
+                        <div class="trash-detail d-flex align-items-center">
+                            <div class="trash-thumb d-flex align-items-center justify-content-center" id="picked">
+                                <i class='bx bx-check-square'></i>
+                            </div>
+                            <div class="trash-text">
+                                <div class="trash-name">Order #323456</div>
+                                <div class="trash-coin">Picked</div>
+                            </div>
+                        </div>
+                        <button class="btn trash-btn d-flex justify-content-center align-items-center">?</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

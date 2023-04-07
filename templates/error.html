@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block body %}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+  .sidebar {
+    display: none;
+  }
+  body {
+    background: #def1fc;
+  }
+  .errorpage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  .errormsg {
+    width: 100%;
+    font-family: 'Bowlby One SC';
+    color: #88bef5;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 1px #3d5af1;
+  }
+</style>
+   <div class="errorpage"> 
+     <div class="errormsg text-center">Error {{code}} : {{name}}</div>
+   </div>
+{% endblock %}

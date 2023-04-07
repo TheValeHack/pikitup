@@ -1,0 +1,345 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block body %}
+{% for i in range(allLen) %}
+                                <div class="modal fade" id="all{{i}}" tabindex="-1" aria-labelledby="all{{i}}Label" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="all{{i}}Label">{{all[i][0]}}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <div class="trash-display">
+                                        <img src={{all[i][3]}} alt="">
+                                    </div>
+                                    <div class="trash-desc">
+                                        {{all[i][2]}}
+                                    </div>
+                                    <form action="/">
+                                    <div class="trash-count mx-auto">
+                                        <input type=text style="display:none;" name="t" value='{{all[i][0]}}'>
+                                        <input type="number" name="a" value=100 step=50 min="100">
+                                        <p class="text-center">Gram</p>
+                                    </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary cancelmodal" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn btn-primary savechanges addtobag">Add to Bag</button>
+                                    </form>
+                                    </div>
+                                </div>
+                                </div>
+                          </div>
+                            {% endfor %}
+
+{% for i in range(plasticsLen) %}
+                            <div class="modal fade" id="plastic{{i}}" tabindex="-1" aria-labelledby="plastic{{i}}Label" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="plastic{{i}}Label">{{plastics[i][0]}}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                </div>
+                                <div class="modal-body">
+                                <div class="trash-display">
+                                    <img src={{plastics[i][3]}} alt="">
+                                </div>
+                                <div class="trash-desc">
+                                    {{plastics[i][2]}}
+                                </div>
+                                <form action="/">
+                                <div class="trash-count mx-auto">
+                                    <input type=text style="display:none;" name="t" value='{{plastics[i][0]}}'>
+                                    <input type="number" name="a" value=100 step=50 min=100>
+                                    <p class="text-center">Gram</p>
+                                </div>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary cancelmodal" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary savechanges addtobag">Add to Bag</button>
+                                </form>
+                                </div>
+                            </div>
+                            </div>
+                      </div>
+                            {% endfor %}
+{% for i in range(papersLen) %}
+                            <div class="modal fade" id="paper{{i}}" tabindex="-1" aria-labelledby="paper{{i}}Label" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="paper{{i}}Label">{{papers[i][0]}}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                </div>
+                                <div class="modal-body">
+                                <div class="trash-display">
+                                    <img src={{papers[i][3]}} alt="">
+                                </div>
+                                <div class="trash-desc">
+                                    {{papers[i][2]}}
+                                </div>
+                                <form action="/">
+                                <div class="trash-count mx-auto">
+                                    <input type=text style="display:none;" name="t" value='{{papers[i][0]}}'>
+                                    <input type="number" name="a" value=100 step=50 min=100>
+                                    <p class="text-center">Gram</p>
+                                </div>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary cancelmodal" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary savechanges addtobag">Add to Bag</button>
+                                </form>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                            {% endfor %}
+{% for i in range(metalsLen) %}
+                            <div class="modal fade" id="metal{{i}}" tabindex="-1" aria-labelledby="metal{{i}}Label" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="metal{{i}}Label">{{metals[i][0]}}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                </div>
+                                <div class="modal-body">
+                                <div class="trash-display">
+                                    <img src={{metals[i][3]}} alt="">
+                                </div>
+                                <div class="trash-desc">
+                                    {{metals[i][2]}}
+                                </div>
+                                <form action="/">
+                                <div class="trash-count mx-auto">
+                                    <input type=text style="display:none;" name="t" value='{{metals[i][0]}}'>
+                                    <input type="number" name="a" value=100 step=50 min=100>
+                                    <p class="text-center">Gram</p>
+                                </div>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary cancelmodal" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary savechanges addtobag">Add to Bag</button>
+                                </form>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                            {% endfor %}
+{% for i in range(othersLen) %}
+                            <div class="modal fade" id="other{{i}}" tabindex="-1" aria-labelledby="other{{i}}Label" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="other{{i}}Label">{{others[i][0]}}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                </div>
+                                <div class="modal-body">
+                                <div class="trash-display">
+                                    <img src={{others[i][3]}} alt="">
+                                </div>
+                                <div class="trash-desc">
+                                    {{others[i][2]}}
+                                </div>
+                                <form action="/">
+                                <div class="trash-count mx-auto">
+                                    <input type=text style="display:none;" name="t" value='{{others[i][0]}}'>
+                                    <input type="number" name="a" value=100 step=50 min=100>
+                                    <p class="text-center">Gram</p>
+                                </div>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary cancelmodal" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary savechanges addtobag">Add to Bag</button>
+                                </form>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                            {% endfor %}
+
+<section class="home-section">
+    <div class="row">
+        <div class="col-md firstcol">
+            <div class="container">
+                <div class="homethumbnail">
+                    <div class="thumbnail-banner"></div>
+                    <div class="thumbnail-profile d-flex justify-content-between">
+                        <div class="profile-content d-flex">
+                            <div class="profile-pic">
+                                <img src="/static/assets/img/profile-pic.jpg" alt="">
+                            </div>
+                            <div class="profile-text">
+                                <div class="profile-name d-flex">{{fullname}} <i class="bx bx-edit"></i></div>
+                                <div class="profile-coins d-flex align-items-center">
+                                    <i class="bx bxl-bitcoin"></i>
+                                    {{coins}} Coins
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="homesearch d-flex align-items-center">
+                    <input type="text" name="trash" id="" placeholder="Search Trash...">
+                    <div><i class="bx bx-search"></i></div>
+                </div>
+                <div class="homesearchtab">
+                    <ul class="nav justify-content-between" id="indexTab">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all-tab-pane" type="button" role="tab" aria-controls="all-tab-pane" aria-selected="true">All</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="plastics-tab" data-bs-toggle="tab" data-bs-target="#plastics-tab-pane" type="button" role="tab" aria-controls="plastics-tab-pane" aria-selected="true">Plastics</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="papers-tab" data-bs-toggle="tab" data-bs-target="#papers-tab-pane" type="button" role="tab" aria-controls="papers-tab-pane" aria-selected="true">Papers</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="metals-tab" data-bs-toggle="tab" data-bs-target="#metals-tab-pane" type="button" role="tab" aria-controls="metals-tab-pane" aria-selected="true">Metals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="others-tab" data-bs-toggle="tab" data-bs-target="#others-tab-pane" type="button" role="tab" aria-controls="others-tab-pane" aria-selected="true">Others</a>
+                          </li>
+                      </ul>
+                </div>
+                <div class="hometrashlist">
+
+              <div class="tab-content" id="indexTabContent">
+                        <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab" tabindex="0">
+                            {% for i in range(allLen) %}
+                                <div class="trashbox d-flex justify-content-between align-items-center" id="">
+                                    <div class="trash-detail d-flex align-items-center">
+                                        <img src="{{all[i][3]}}" alt="" class="trash-img">
+                                        <div class="trash-text">
+                                            <div class="trash-name">{{all[i][0]}}</div>
+                                            <div class="trash-coin">{{all[i][1]}} Coins / KG </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn trash-btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#all{{i}}">+</button>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="tab-pane fade" id="plastics-tab-pane" role="tabpanel" aria-labelledby="plastics-tab" tabindex="0">
+                            {% for i in range(plasticsLen) %}
+                            <div class="trashbox d-flex justify-content-between align-items-center" id="">
+                                <div class="trash-detail d-flex align-items-center">
+                                    <img src={{plastics[i][3]}} alt="" class="trash-img">
+                                    <div class="trash-text">
+                                        <div class="trash-name">{{plastics[i][0]}}</div>
+                                        <div class="trash-coin">{{plastics[i][1]}} Coins / KG </div>
+                                    </div>
+                                </div>
+                                <button class="btn trash-btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#plastic{{i}}">+</button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="tab-pane fade" id="papers-tab-pane" role="tabpanel" aria-labelledby="papers-tab" tabindex="0">
+                            {% for i in range(papersLen) %}
+                            <div class="trashbox d-flex justify-content-between align-items-center" id="">
+                                <div class="trash-detail d-flex align-items-center">
+                                    <img src={{papers[i][3]}} alt="" class="trash-img">
+                                    <div class="trash-text">
+                                        <div class="trash-name">{{papers[i][0]}}</div>
+                                        <div class="trash-coin">{{papers[i][1]}} Coins / KG </div>
+                                    </div>
+                                </div>
+                                <button class="btn trash-btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#paper{{i}}">+</button>
+                            </div>
+                              
+                            {% endfor %}
+                        </div>
+                        <div class="tab-pane fade" id="metals-tab-pane" role="tabpanel" aria-labelledby="metals-tab" tabindex="0">
+                            {% for i in range(metalsLen) %}
+                            <div class="trashbox d-flex justify-content-between align-items-center" id="">
+                                <div class="trash-detail d-flex align-items-center">
+                                    <img src="/static/assets/img/botolplastik.jpg" alt="" class="trash-img">
+                                    <div class="trash-text">
+                                        <div class="trash-name">{{metals[i][0]}}</div>
+                                        <div class="trash-coin">{{metals[i][1]}} Coins / KG </div>
+                                    </div>
+                                </div>
+                                <button class="btn trash-btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#metal{{i}}">+</button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="tab-pane fade" id="others-tab-pane" role="tabpanel" aria-labelledby="others-tab" tabindex="0">
+                            {% for i in range(othersLen) %}
+                            <div class="trashbox d-flex justify-content-between align-items-center" id="">
+                                <div class="trash-detail d-flex align-items-center">
+                                    <img src={{others[i][3]}} alt="" class="trash-img">
+                                    <div class="trash-text">
+                                        <div class="trash-name">{{others[i][0]}}</div>
+                                        <div class="trash-coin">{{others[i][1]}} Coins / KG </div>
+                                    </div>
+                                </div>
+                                <button class="btn trash-btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#other{{i}}">+</button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 secondcol fixed">
+            <div class="container">
+                <div class="recent-act d-flex justify-content-between align-items-center">
+                    <div class="recent-title">Recent Activity</div>
+                    <div class="recent-viewmore">View More</div>
+                </div>
+                <div class="activity-list">
+                    <div class="activitybox d-flex justify-content-between align-items-center" id="">
+                        <div class="activity-detail d-flex align-items-center">
+                            <div class="activity-thumb d-flex align-items-center justify-content-center" id="transfer">
+                                <i class="bx bx-transfer-alt"></i>
+                            </div>
+                            <div class="activity-text">
+                                <div class="activity-name">Exchange 10.000 Coins</div>
+                                <div class="activity-coin">20 mins ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activitybox d-flex justify-content-between align-items-center" id="">
+                        <div class="activity-detail d-flex align-items-center">
+                            <div class="activity-thumb d-flex align-items-center justify-content-center" id="receive">
+                                <i class="bx bx-coin"></i>
+                            </div>
+                            <div class="activity-text">
+                                <div class="activity-name">Receive 8.000 Coins</div>
+                                <div class="activity-coin">1 hour ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activitybox d-flex justify-content-between align-items-center" id="">
+                        <div class="activity-detail d-flex align-items-center">
+                            <div class="activity-thumb d-flex align-items-center justify-content-center" id="receive">
+                                <i class="bx bx-coin"></i>
+                            </div>
+                            <div class="activity-text">
+                                <div class="activity-name">Receive 2.000 Coins</div>
+                                <div class="activity-coin">9 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activitybox d-flex justify-content-between align-items-center" id="">
+                        <div class="activity-detail d-flex align-items-center">
+                            <div class="activity-thumb d-flex align-items-center justify-content-center" id="transfer">
+                                <i class="bx bx-transfer-alt"></i>
+                            </div>
+                            <div class="activity-text">
+                                <div class="activity-name">Exchange 60.000 Coins</div>
+                                <div class="activity-coin">3 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

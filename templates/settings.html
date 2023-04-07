@@ -1,0 +1,170 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block body %}
+
+<section class="home-section">
+    <div class="row">
+        <div class="col-md firstcol">
+            <div class="container">
+                <div class="homethumbnail">
+                    <div class="thumbnail-banner"></div>
+                    <div class="thumbnail-profile d-flex justify-content-between">
+                        <div class="profile-content d-flex">
+                            <div class="profile-pic">
+                                <img src="/static/assets/img/profile-pic.jpg" alt="">
+                            </div>
+                            <div class="profile-text">
+                                <div class="profile-name d-flex">{{fullname}}<i class="bx bx-edit"></i></div>
+                                <div class="profile-coins d-flex align-items-center">
+                                    <i class="bx bxl-bitcoin"></i>
+                                    {{coins}} Coins
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="homesearchtab">
+                    <ul class="nav justify-content-between" id="settingsTab">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="true">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal-tab-pane" type="button" role="tab" aria-controls="personal-tab-pane" aria-selected="true">Personal Information</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Billings</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="password-tab" data-bs-toggle="tab" data-bs-target="#password-tab-pane" type="button" role="tab" aria-controls="password-tab-pane" aria-selected="true">Password</a>
+                        </li>
+                      </ul>
+                </div>
+                <div class="hometrashlist">   
+                    <div class="tab-content" id="settingsTabContent">
+                        <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                            <div class="profile-settings-wrapper">
+                                <form>
+                                    <div class="mb-4">
+                                      <label for="username" class="form-label">Username</label>
+                                      <input type="text" class="form-control" id="username" aria-describedby="username" placeholder="Username...">
+                                    </div>
+                                    <div class="mb-4">
+                                      <label for="firstname" class="form-label">First Name</label>
+                                      <input type="text" class="form-control" id="firstname" placeholder="First Name...">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="lastname" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastname" placeholder="Last Name...">
+                                      </div>
+                                    
+                                    <div class="buttonwrapper d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary savechanges">Save Changes</button>
+                                    </div> 
+                                  </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="personal-tab-pane" role="tabpanel" aria-labelledby="personal-tab" tabindex="0">
+                            <div class="profile-settings-wrapper">
+                                <form>
+                                    <div class="mb-4">
+                                      <label for="address" class="form-label">Address</label>
+                                      <textarea class="form-control" id="address" rows="3" placeholder="Adress..."></textarea>
+                                    </div>
+                                    <div class="mb-4">
+                                      <label for="phonenumber" class="form-label">Phone number</label>
+                                      <input type="text" class="form-control" id="phonenumber" placeholder="Phone Number...">
+                                    </div>
+                                    
+                                    <div class="buttonwrapper d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary savechanges">Save Changes</button>
+                                    </div> 
+                                  </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="billings-tab-pane" role="tabpanel" aria-labelledby="billings-tab" tabindex="0"></div>
+                        <div class="tab-pane fade show" id="password-tab-pane" role="tabpanel" aria-labelledby="password-tab" tabindex="0">
+                            <form>
+                                <div class="mb-4">
+                                  <label for="currentpassword" class="form-label">Current Password</label>
+                                  <input type="text" class="form-control" id="currentpassword" aria-describedby="currentpassword" placeholder="Current Password...">
+                                </div>
+                                <div class="mb-4">
+                                  <label for="newpassword" class="form-label">New Password</label>
+                                  <input type="text" class="form-control" id="newpassword" placeholder="New Password...">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="confirmpassword" class="form-label">Confirm Password</label>
+                                    <input type="text" class="form-control" id="confirmpassword" placeholder="Confirm Password...">
+                                  </div>
+                                
+                                <div class="buttonwrapper d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary savechanges">Save Changes</button>
+                                </div> 
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 secondcol fixed">
+            <div class="container">
+                <div class="recent-act d-flex justify-content-between align-items-center">
+                    <div class="recent-title">Recent Activity</div>
+                    <div class="recent-viewmore">View More</div>
+                </div>
+                <div class="activity-list">
+                    <div class="activitybox d-flex justify-content-between align-items-center" id="">
+                        <div class="activity-detail d-flex align-items-center">
+                            <div class="activity-thumb d-flex align-items-center justify-content-center" id="transfer">
+                                <i class="bx bx-transfer-alt"></i>
+                            </div>
+                            <div class="activity-text">
+                                <div class="activity-name">Exchange 10.000 Coins</div>
+                                <div class="activity-coin">20 mins ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activitybox d-flex justify-content-between align-items-center" id="">
+                        <div class="activity-detail d-flex align-items-center">
+                            <div class="activity-thumb d-flex align-items-center justify-content-center" id="receive">
+                                <i class="bx bx-coin"></i>
+                            </div>
+                            <div class="activity-text">
+                                <div class="activity-name">Receive 8.000 Coins</div>
+                                <div class="activity-coin">1 hour ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activitybox d-flex justify-content-between align-items-center" id="">
+                        <div class="activity-detail d-flex align-items-center">
+                            <div class="activity-thumb d-flex align-items-center justify-content-center" id="receive">
+                                <i class="bx bx-coin"></i>
+                            </div>
+                            <div class="activity-text">
+                                <div class="activity-name">Receive 2.000 Coins</div>
+                                <div class="activity-coin">9 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activitybox d-flex justify-content-between align-items-center" id="">
+                        <div class="activity-detail d-flex align-items-center">
+                            <div class="activity-thumb d-flex align-items-center justify-content-center" id="transfer">
+                                <i class="bx bx-transfer-alt"></i>
+                            </div>
+                            <div class="activity-text">
+                                <div class="activity-name">Exchange 60.000 Coins</div>
+                                <div class="activity-coin">3 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

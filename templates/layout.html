@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %} - PikItUp</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/static/assets/img/logo1.png" type="image/icon type">
+    
+        <!-- External CSS -->
+        <link rel="stylesheet" href="/static/bootstrap5/css/bootstrap.rtl.min.css">
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    
+        <!-- Our CSS -->
+        <link rel="stylesheet" href="/static/css/index.css">
+    </head>
+    <body>
+        {% include "components/sidebar.html" %}
+        {% block body %}{% endblock %}
+        <!-- External JS -->
+        <script src="/static/bootstrap5/js/jquery.min.js"></script>
+        <script src="/static/bootstrap5/js/popper.min.js"></script>
+        <script src="/static/bootstrap5/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+        
+        <!-- Our JS -->
+        <script src="/static/js/index.js"></script>
+    </body>
+</html>
